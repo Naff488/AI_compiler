@@ -1,0 +1,5 @@
+venv/
+.env
+backend/.env
+PROJECT_DECISIONS.md
+backend/__pycache__/
