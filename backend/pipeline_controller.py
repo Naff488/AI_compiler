@@ -6,6 +6,12 @@ from pipeline.system_designer import design_system
 
 from pipeline.schema_generator import generate_schema
 
+from pipeline.validator import validate_system
+
+from pipeline.repair_engine import repair_system
+
+from runtime.runtime_executor import execute_runtime
+
 
 def run_pipeline(user_prompt):
 
@@ -16,6 +22,7 @@ def run_pipeline(user_prompt):
         intent.model_dump()
 
     )
+
     print("Normalized Intent")
 
     print(intent_data)
@@ -32,14 +39,48 @@ def run_pipeline(user_prompt):
 
     )
 
+    validation_errors = validate_system(
+
+        system_design.model_dump(),
+
+        generated_schema.model_dump()
+
+    )
+    repaired_schema = repair_system(
+
+    validation_errors,
+
+    generated_schema.model_dump()
+
+    )
+    runtime_output = execute_runtime(
+
+    repaired_schema
+
+    )
+
     return {
 
         "intent": intent_data,
 
-        "system_design": system_design.model_dump(),
+        "system_design":
+
+        system_design.model_dump(),
 
         "generated_schema":
 
-        generated_schema.model_dump()
+        generated_schema.model_dump(),
+
+        "validation_errors":
+
+        validation_errors,
+
+        "repaired_schema":
+        
+        repaired_schema,
+
+        "runtime_output":
+
+        runtime_output
 
     }

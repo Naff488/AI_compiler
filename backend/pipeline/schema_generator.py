@@ -1,5 +1,13 @@
 from schemas.app_schema import AppSchema
 
+from pipeline.ui_generator import generate_ui
+
+from pipeline.api_generator import generate_api
+
+from pipeline.db_generator import generate_db
+
+from pipeline.auth_generator import generate_auth
+
 
 def generate_schema(system_design):
 
@@ -9,64 +17,19 @@ def generate_schema(system_design):
 
     roles = system_design["roles"]
 
+    ui_schema = generate_ui(pages)
 
-    ui_schema = {
+    api_schema = generate_api(entities)
 
-        "pages": []
+    db_schema = generate_db(entities)
 
-    }
+    auth_schema = generate_auth(
 
-    for page in pages:
+        roles,
 
-        ui_schema["pages"].append({
+        pages
 
-            "name": page
-
-        })
-
-
-    api_schema = {
-
-        "endpoints": []
-
-    }
-
-    for entity in entities:
-
-        api_schema["endpoints"].append({
-
-            "path": f"/{entity}s",
-
-            "method": "GET"
-
-        })
-
-
-    db_schema = {
-
-        "tables": []
-
-    }
-
-    for entity in entities:
-
-        db_schema["tables"].append({
-
-            "name": f"{entity}s"
-
-        })
-
-
-    auth_schema = {
-
-        "permissions": {}
-
-    }
-
-    for role in roles:
-
-        auth_schema["permissions"][role] = pages
-
+    )
 
     return AppSchema(
 

@@ -6,6 +6,8 @@ FEATURE_MAP = {
 
     "contact_management": "contacts",
 
+    "contacts_management": "contacts",
+
     "role-based access control": "role_access",
 
     "role_based_access_control": "role_access",
@@ -23,7 +25,6 @@ FEATURE_MAP = {
     "analytics": "analytics"
 
 }
-
 
 def normalize_intent(intent):
 

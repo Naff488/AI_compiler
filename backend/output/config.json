@@ -1,0 +1,102 @@
+{
+    "ui_schema": {
+        "pages": [
+            {
+                "name": "dashboard",
+                "layout": "default"
+            },
+            {
+                "name": "contacts",
+                "layout": "default"
+            },
+            {
+                "name": "analytics",
+                "layout": "default"
+            },
+            {
+                "name": "payments",
+                "layout": "default"
+            }
+        ]
+    },
+    "api_schema": {
+        "endpoints": [
+            {
+                "path": "/users",
+                "method": "GET"
+            },
+            {
+                "path": "/users",
+                "method": "POST"
+            },
+            {
+                "path": "/users",
+                "method": "PUT"
+            },
+            {
+                "path": "/users",
+                "method": "DELETE"
+            },
+            {
+                "path": "/subscriptions",
+                "method": "GET"
+            },
+            {
+                "path": "/subscriptions",
+                "method": "POST"
+            },
+            {
+                "path": "/subscriptions",
+                "method": "PUT"
+            },
+            {
+                "path": "/subscriptions",
+                "method": "DELETE"
+            },
+            {
+                "path": "/contacts",
+                "method": "GET"
+            },
+            {
+                "path": "/contacts",
+                "method": "POST"
+            },
+            {
+                "path": "/contacts",
+                "method": "PUT"
+            },
+            {
+                "path": "/contacts",
+                "method": "DELETE"
+            }
+        ]
+    },
+    "db_schema": {
+        "tables": [
+            {
+                "name": "users"
+            },
+            {
+                "name": "subscriptions"
+            },
+            {
+                "name": "contacts"
+            }
+        ]
+    },
+    "auth_schema": {
+        "permissions": {
+            "user": [
+                "dashboard",
+                "contacts",
+                "payments"
+            ],
+            "admin": [
+                "dashboard",
+                "contacts",
+                "analytics",
+                "payments"
+            ]
+        }
+    }
+}
