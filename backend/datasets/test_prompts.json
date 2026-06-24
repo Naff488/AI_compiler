@@ -1,0 +1,101 @@
+[
+  {
+    "type": "real",
+    "prompt": "Build a CRM with login, contacts, dashboard and analytics."
+  },
+
+  {
+    "type": "real",
+    "prompt": "Build an e-commerce app with payments and admin dashboard."
+  },
+
+  {
+    "type": "real",
+    "prompt": "Build a hospital management system."
+  },
+
+  {
+    "type": "real",
+    "prompt": "Build a school management platform."
+  },
+
+  {
+    "type": "real",
+    "prompt": "Build a project management tool."
+  },
+
+  {
+    "type": "real",
+    "prompt": "Build a restaurant ordering app."
+  },
+
+  {
+    "type": "real",
+    "prompt": "Build a fitness tracking app."
+  },
+
+  {
+    "type": "real",
+    "prompt": "Build a job portal."
+  },
+
+  {
+    "type": "real",
+    "prompt": "Build an inventory management system."
+  },
+
+  {
+    "type": "real",
+    "prompt": "Build a blogging platform."
+  },
+
+  {
+    "type": "edge",
+    "prompt": "Build something."
+  },
+
+  {
+    "type": "edge",
+    "prompt": ""
+  },
+
+  {
+    "type": "edge",
+    "prompt": "Create an app but don't create pages."
+  },
+
+  {
+    "type": "edge",
+    "prompt": "Build a CRM but users should not log in."
+  },
+
+  {
+    "type": "edge",
+    "prompt": "Build an app with payments but no subscriptions."
+  },
+
+  {
+    "type": "edge",
+    "prompt": "Build a dashboard and remove dashboard."
+  },
+
+  {
+    "type": "edge",
+    "prompt": "Build an app for everyone."
+  },
+
+  {
+    "type": "edge",
+    "prompt": "Build a platform."
+  },
+
+  {
+    "type": "edge",
+    "prompt": "Build an app with infinite roles."
+  },
+
+  {
+    "type": "edge",
+    "prompt": "Build a system without users."
+  }
+]

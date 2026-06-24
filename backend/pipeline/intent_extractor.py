@@ -1,8 +1,7 @@
 import os
 import json
 
-import google.generativeai as genai
-
+from google import genai
 from dotenv import load_dotenv
 
 from schemas.intent_schema import IntentSchema
@@ -10,19 +9,17 @@ from schemas.intent_schema import IntentSchema
 
 load_dotenv()
 
-genai.configure(
+client = genai.Client(
     api_key=os.getenv("GEMINI_API_KEY")
-)
-
-model = genai.GenerativeModel(
-    "gemini-2.5-flash"
 )
 
 
 def extract_intent(user_prompt: str):
 
     prompt = f"""
-You are an AI compiler intent extraction engine.
+You are a STRICT compiler for application generation.
+
+You are NOT a creative assistant.
 
 Your task:
 
@@ -36,14 +33,38 @@ Rules:
 4. If role-based access exists, include roles.
 5. Be deterministic.
 6. Do not invent unnecessary features.
+7. Do NOT create new roles unless explicitly mentioned.
+8. Do NOT create new pages unless explicitly required.
+9. Do NOT create new entities unless directly implied.
+10. Use the minimum viable architecture.
+11. Use ONLY these canonical feature names when applicable:
+
+login
+dashboard
+contacts
+payments
+subscriptions
+analytics
+shopping_cart
+product_catalog
+checkout_process
+admin_dashboard
+
+12. Never invent synonyms such as:
+view cart
+product browsing
+add to cart
+manage subscriptions
+
+Convert them to canonical names.
 
 Output schema:
 
 {{
- "app_type":"",
- "features":[],
- "roles":[],
- "business_rules":[]
+  "app_type":"",
+  "features":[],
+  "roles":[],
+  "business_rules":[]
 }}
 
 User Request:
@@ -51,7 +72,10 @@ User Request:
 {user_prompt}
 """
 
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=prompt
+    )
 
     text = response.text.strip()
 

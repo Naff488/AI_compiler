@@ -31,9 +31,10 @@
     },
     "auth_schema": {
         "permissions": {
-            "candidate": [],
-            "employer": [],
-            "admin": []
+            "admin": [
+                "analytics"
+            ],
+            "user": []
         }
     }
 }
