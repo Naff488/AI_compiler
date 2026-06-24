@@ -2,31 +2,27 @@
     "ui_schema": {
         "pages": [
             {
-                "name": "login",
-                "layout": "default"
-            },
-            {
-                "name": "products",
-                "layout": "default"
-            },
-            {
                 "name": "subscriptions",
                 "layout": "default"
             },
             {
-                "name": "checkout",
+                "name": "contacts",
                 "layout": "default"
             },
             {
-                "name": "cart",
+                "name": "login",
+                "layout": "default"
+            },
+            {
+                "name": "dashboard",
+                "layout": "default"
+            },
+            {
+                "name": "analytics",
                 "layout": "default"
             },
             {
                 "name": "payments",
-                "layout": "default"
-            },
-            {
-                "name": "admin_dashboard",
                 "layout": "default"
             }
         ]
@@ -34,51 +30,19 @@
     "api_schema": {
         "endpoints": [
             {
-                "path": "/carts",
+                "path": "/contacts",
                 "method": "GET"
             },
             {
-                "path": "/carts",
+                "path": "/contacts",
                 "method": "POST"
             },
             {
-                "path": "/carts",
+                "path": "/contacts",
                 "method": "PUT"
             },
             {
-                "path": "/carts",
-                "method": "DELETE"
-            },
-            {
-                "path": "/products",
-                "method": "GET"
-            },
-            {
-                "path": "/products",
-                "method": "POST"
-            },
-            {
-                "path": "/products",
-                "method": "PUT"
-            },
-            {
-                "path": "/products",
-                "method": "DELETE"
-            },
-            {
-                "path": "/orders",
-                "method": "GET"
-            },
-            {
-                "path": "/orders",
-                "method": "POST"
-            },
-            {
-                "path": "/orders",
-                "method": "PUT"
-            },
-            {
-                "path": "/orders",
+                "path": "/contacts",
                 "method": "DELETE"
             },
             {
@@ -95,22 +59,6 @@
             },
             {
                 "path": "/subscriptions",
-                "method": "DELETE"
-            },
-            {
-                "path": "/admins",
-                "method": "GET"
-            },
-            {
-                "path": "/admins",
-                "method": "POST"
-            },
-            {
-                "path": "/admins",
-                "method": "PUT"
-            },
-            {
-                "path": "/admins",
                 "method": "DELETE"
             },
             {
@@ -134,19 +82,10 @@
     "db_schema": {
         "tables": [
             {
-                "name": "carts"
-            },
-            {
-                "name": "products"
-            },
-            {
-                "name": "orders"
+                "name": "contacts"
             },
             {
                 "name": "subscriptions"
-            },
-            {
-                "name": "admins"
             },
             {
                 "name": "users"
@@ -156,27 +95,24 @@
     "auth_schema": {
         "permissions": {
             "admin": [
-                "login",
-                "products",
                 "subscriptions",
-                "checkout",
-                "cart",
-                "payments",
-                "admin_dashboard"
-            ],
-            "user": [
+                "contacts",
                 "login",
-                "products",
-                "checkout",
-                "cart",
+                "dashboard",
+                "analytics",
                 "payments"
             ],
             "premium_user": [
-                "login",
-                "products",
                 "subscriptions",
-                "checkout",
-                "cart",
+                "contacts",
+                "login",
+                "dashboard",
+                "payments"
+            ],
+            "user": [
+                "contacts",
+                "login",
+                "dashboard",
                 "payments"
             ]
         }
